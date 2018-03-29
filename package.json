@@ -12,7 +12,10 @@
     "setup:all": "lerna run setup",
     "play": "cd ./packages/playground && yarn && yarn start",
     "postinstall": "yarn setup:all && lerna bootstrap",
-    "precommit": "yarn clean-computed-sass:all && yarn prepare-sass:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
+    "precommit": "yarn clean-computed-sass:all && yarn prepare-sass:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o ./docs && yarn preview:docs",
+    "preview:docs": "serve ./docs -p 3002 --open"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,11 @@
   "homepage": "https://github.com/pismo/bolt#readme",
   "devDependencies": {
     "@pismo/eslint-config-bolt": "^0.0.1-5",
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-links": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/react": "^3.3.15",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-styled-components": "^1.4.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -50,6 +58,7 @@
     "lint-staged": "^6.0.0",
     "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0",
+    "serve": "^6.5.3",
     "strip-json-comments": "^2.0.1"
   },
   "dependencies": {

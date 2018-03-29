@@ -1,6 +1,11 @@
 {
+  "ignore": [
+    '.storybook/*',
+    'docs/*',  
+    'stories/*'
+  ],
   "linters": {
-    "**/*.js": [
+    "packages/**/*.js": [
       "yarn lint:all",
       "git add"
     ]
