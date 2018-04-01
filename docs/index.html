@@ -1,1 +1,20 @@
-Bolt!
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Bolt</title>
+</head>
+<body>
+  <nav><button onclick="getMarkdown()">Button</button></nav>
+  <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    function getMarkdown() {
+      const url = `https://raw.githubusercontent.com/pismo/bolt/master/packages/button/README.md`
+      fetch(url).then(mark => mark.text()).then(text => {
+        document.getElementById('content').innerHTML = marked(text);
+      })
+    }    
+  </script>
+</body>
+</html>
